@@ -12,7 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 MB_CLASS_AVAILABLE_IOS(8.0)
-@interface MBClassInfo : NSObject
+@interface MBClassInfo : NSObject <NSSecureCoding>
 
 - (instancetype)init NS_UNAVAILABLE;
 
@@ -30,6 +30,31 @@ MB_CLASS_AVAILABLE_IOS(8.0)
  * The type of the scanned document.
  */
 @property (nonatomic, readonly, assign) MBType type;
+
+/**
+ * Flag that indicates if class info is empty
+*/
+@property (nonatomic, readonly, assign) BOOL empty;
+
+/**
+ * The name of the country that issued the scanned document.
+*/
+@property (nonatomic, readonly, copy, nullable) NSString *countryName;
+
+/**
+ * The ISO numeric code of the country that issued the scanned document.
+*/
+@property (nonatomic, readonly, copy, nullable) NSString *isoNumericCountryCode;
+
+/**
+ * The 2 letter ISO code of the country that issued the scanned document.
+*/
+@property (nonatomic, readonly, copy, nullable) NSString *isoAlpha2CountryCode;
+
+/**
+ * The 3 letter ISO code of the country that issued the scanned document.
+ */
+@property (nonatomic, readonly, copy, nullable) NSString *isoAlpha3CountryCode;
 
 @end
 
